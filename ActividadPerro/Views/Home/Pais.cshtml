@@ -1,0 +1,30 @@
+﻿@model ActividadPerro.Models.ViewModels.Pais
+@{
+	Layout = "Layout";
+}
+<section class="nav">
+    <h3>Razas por país</h3>
+    <nav>
+        <a href="~/Home/index">Listado Alfabético de Razas</a>
+    </nav>
+</section>
+
+<section class="list">
+    @foreach(var clas in Model.pai)
+    {
+    <h4>@clas.NamePais</h4>
+        @foreach(var clas1 in clas.perros)
+        {
+    <ul>
+        <li>
+            <a href="~/raza/@clas1.Nombre">
+                <img src="~/imgs_perros/@(clas1.Id)_0.jpg" />
+                @clas1.Nombre
+            </a>
+        </li>
+    </ul>
+        }
+    }
+</section>
+
+

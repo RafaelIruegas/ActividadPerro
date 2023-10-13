@@ -1,0 +1,28 @@
+﻿@model ActividadPerro.Models.ViewModels.IndexViewModels
+@{
+    Layout = "Layout";
+}
+<section class="nav">
+    <h3>ABC de Razas</h3>
+    <nav>
+        <a href="~/">Todas</a>
+        @for (char Letras = 'A'; Letras <= 'Z'; Letras++)
+        {
+        <a href="~/?id=@Letras">@Letras</a>    
+        }
+        <a href="~/Pais">Listado por país</a>
+    </nav>
+</section>
+<section class="list">
+    @foreach(var perro in Model.DogList)
+    {    
+    <ul>
+        <li>
+            <a href="~/raza/@perro.NamePerro.Replace(" ","_")">
+                <img src="~/imgs_perros/@(perro.Id)_0.jpg">
+                @perro.NamePerro
+            </a>
+        </li>
+    </ul>
+    }
+</section>
